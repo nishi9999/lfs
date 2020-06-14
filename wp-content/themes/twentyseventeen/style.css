@@ -3810,9 +3810,9 @@ p > object:only-child {
 
 	/* Posts */
 
-	.site-content {
+	/*.site-content {
 		padding: 5.5em 0 0;
-	}
+	}*/
 
 	.single-post .entry-title,
 	.page .entry-title {
