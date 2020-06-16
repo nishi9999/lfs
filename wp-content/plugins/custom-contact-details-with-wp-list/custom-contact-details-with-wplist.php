@@ -218,9 +218,11 @@ function showdetails_shortcode() {
         $items = $wpdb->get_results($wpdb->prepare("SELECT * FROM $table_name ORDER BY id $order LIMIT %d OFFSET %d", $per_page, $paged), ARRAY_A);
         $i = 1;
         $str = '<link rel="stylesheet" type="text/css" href="'.plugin_dir_url(__FILE__).'includes/css/jquery.dataTables.min.css">';
+        $str .= '<link rel="stylesheet" type="text/css" href="'.plugin_dir_url(__FILE__).'includes/css/responsive.dataTables.min.css">';
         $str .= '<script src="'.plugin_dir_url(__FILE__).'includes/js/jquery-3.5.1.js"></script>';
         $str .= '<script src="'.plugin_dir_url(__FILE__).'includes/js/jquery.dataTables.min.js"></script>';
-        $str .= '<table id="datatable" class="display" style="width:100%"><thead><tr><th>Number</th><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></thead><tboday>';
+        $str .= '<script src="'.plugin_dir_url(__FILE__).'includes/js/dataTables.responsive.min.js"></script>';
+        $str .= '<table id="datatable" class="display nowrap" style="width:100%"><thead><tr><th>Number</th><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></thead><tboday>';
         foreach($items as $key => $item){
         $str .= '<tr>';
         $str .= '<td>'.$i.'</td><td>'.$item["date"].'</td><td>'.$item["name"].'</td><td>'.$item["email"].'</td><td>'.$item["phone"].'</td><td>'.$item["address"].'</td>';
@@ -228,7 +230,7 @@ function showdetails_shortcode() {
           $i++; 
         }
         $str .= '</tboday><tfoot><tr><th>Number</th><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Address</th></tr></tfoot></table>';
-        $str .= '<script>$(document).ready(function() { $("#datatable").DataTable();} );</script>' ;
+        $str .= '<script>$(document).ready(function() { $("#datatable").DataTable({responsive: true});} );</script>' ;
         return $str;
 }
 add_shortcode( 'anantkalen_paath_list', 'showdetails_shortcode' );

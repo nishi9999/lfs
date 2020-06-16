@@ -1042,7 +1042,8 @@ input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-	background: #767676;
+	/*background: #767676;*/
+	color:gray;
 }
 
 button.secondary:hover,
