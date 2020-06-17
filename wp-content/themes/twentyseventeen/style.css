@@ -2310,6 +2310,8 @@ body:not(.twentyseventeen-front-page) .entry-header {
 
 .site-footer {
 	border-top: 1px solid #eee;
+	background-color:#000c;
+	color: white;
 }
 
 .site-footer .wrap {
